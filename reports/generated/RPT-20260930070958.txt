@@ -1,0 +1,79 @@
+===========================================================================
+                    TRACEX INCIDENT REPORT
+===========================================================================
+
+REPORT INFORMATION
+---------------------------------------------------------------------------
+Report ID       : RPT-20260930070958
+Generated At    : 2026-09-30 07:09:58
+Report Type     : TRACEX_INCIDENT_INVESTIGATION_REPORT
+
+CASE INFORMATION
+---------------------------------------------------------------------------
+Case ID         : CASE-0002
+Username        : admin
+Source IP       : 185.10.20.30
+Service         : N/A
+Status          : NEW
+Risk Score      : 90/100
+Risk Level      : HIGH
+
+DETECTION SUMMARY
+---------------------------------------------------------------------------
+Related Alerts  : 4
+Detection Rules : ACCOUNT_MODIFICATION, BRUTE_FORCE_AUTH, PRIVILEGED_ACTIVITY, SUCCESS_AFTER_FAILURE
+  • TRX-0002 | BRUTE_FORCE_AUTH | HIGH
+  • TRX-0003 | SUCCESS_AFTER_FAILURE | HIGH
+  • TRX-0004 | PRIVILEGED_ACTIVITY | MEDIUM
+  • TRX-0005 | ACCOUNT_MODIFICATION | HIGH
+
+EVIDENCE SUMMARY
+---------------------------------------------------------------------------
+Failed Logins       : 0
+Successful Logins   : 0
+Privileged Events   : 0
+Account Changes     : 0
+Supporting Signals  : 0
+
+MITRE ATT&CK CONTEXT
+---------------------------------------------------------------------------
+  T1110 - Brute Force
+      Evidence : N/A
+      Context  : N/A
+  T1078 - Valid Accounts
+      Evidence : N/A
+      Context  : N/A
+  T1548.003 - Sudo and Sudo Caching
+      Evidence : N/A
+      Context  : N/A
+  T1098 - Account Manipulation
+      Evidence : N/A
+      Context  : N/A
+
+ANALYST ASSESSMENT
+---------------------------------------------------------------------------
+Current Decision : RESOLVE
+Decision Status  : N/A
+Analyst Notes    : 1
+Investigation Activities : 1
+  • 2026-09-28 15:46:45 - Authentication failures were followed by successful login and privileged activity; evidence requires further validation.
+
+RESPONSE ACTIONS
+---------------------------------------------------------------------------
+Total Actions     : 0
+Completed Actions : 0
+
+RESOLUTION
+---------------------------------------------------------------------------
+Status           : NEW
+Analyst Decision : RESOLVE
+Resolution Reason: N/A
+Resolved At      : N/A
+
+ASSESSMENT
+---------------------------------------------------------------------------
+The report summarizes observed security events, correlated evidence, risk assessment, analyst activity, MITRE ATT&CK context, and response tracking. The presence of suspicious indicators does not by itself confirm malicious activity.
+
+===========================================================================
+                  END OF TRACEX REPORT
+===========================================================================

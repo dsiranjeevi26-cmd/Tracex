@@ -1,0 +1,191 @@
+[
+    {
+        "case_id": "CASE-0001",
+        "created_at": "2026-09-28T13:46:50",
+        "updated_at": "2026-09-30T07:09:58",
+        "status": "NEW",
+        "risk_score": 30,
+        "risk_level": "LOW",
+        "username": "testuser",
+        "source_ip": "10.10.10.50",
+        "related_alert_ids": [
+            "TRX-0001"
+        ],
+        "detection_rules": [
+            "BRUTE_FORCE_AUTH"
+        ],
+        "event_counts": {
+            "failed_logins": 6,
+            "successful_logins": 0,
+            "sudo_events": 0,
+            "account_changes": 0
+        },
+        "analyst_notes": [],
+        "mitre_mappings": [
+            {
+                "technique_id": "T1110",
+                "technique_name": "Brute Force",
+                "evidence_type": "failed_logins",
+                "evidence_count": 6,
+                "description": "Repeated failed authentication attempts were observed.",
+                "assessment": "Technique is relevant to the observed evidence and requires analyst validation."
+            }
+        ],
+        "response_actions": [],
+        "timeline": [],
+        "correlation_reason": "Security alerts and related authentication, privilege, and account activity were correlated using common username and source IP."
+    },
+    {
+        "case_id": "CASE-0002",
+        "created_at": "2026-09-28T15:28:01",
+        "updated_at": "2026-09-30T07:09:58",
+        "status": "NEW",
+        "risk_score": 90,
+        "risk_level": "HIGH",
+        "username": "admin",
+        "source_ip": "185.10.20.30",
+        "related_alert_ids": [
+            "TRX-0002",
+            "TRX-0003",
+            "TRX-0004",
+            "TRX-0005"
+        ],
+        "detection_rules": [
+            "ACCOUNT_MODIFICATION",
+            "BRUTE_FORCE_AUTH",
+            "PRIVILEGED_ACTIVITY",
+            "SUCCESS_AFTER_FAILURE"
+        ],
+        "event_counts": {
+            "failed_logins": 6,
+            "successful_logins": 1,
+            "sudo_events": 1,
+            "account_changes": 1
+        },
+        "analyst_notes": [
+            {
+                "timestamp": "2026-09-28 15:46:45",
+                "note": "Authentication failures were followed by successful login and privileged activity; evidence requires further validation."
+            }
+        ],
+        "mitre_mappings": [
+            {
+                "technique_id": "T1110",
+                "technique_name": "Brute Force",
+                "evidence_type": "failed_logins",
+                "evidence_count": 6,
+                "description": "Repeated failed authentication attempts were observed.",
+                "assessment": "Technique is relevant to the observed evidence and requires analyst validation."
+            },
+            {
+                "technique_id": "T1078",
+                "technique_name": "Valid Accounts",
+                "evidence_type": "successful_logins",
+                "evidence_count": 1,
+                "description": "A successful authentication event was observed after authentication failure activity.",
+                "assessment": "Technique is relevant to the observed evidence and requires analyst validation."
+            },
+            {
+                "technique_id": "T1548.003",
+                "technique_name": "Sudo and Sudo Caching",
+                "evidence_type": "sudo_events",
+                "evidence_count": 1,
+                "description": "Privileged activity using sudo was observed.",
+                "assessment": "Technique is relevant to the observed evidence and requires analyst validation."
+            },
+            {
+                "technique_id": "T1098",
+                "technique_name": "Account Manipulation",
+                "evidence_type": "account_changes",
+                "evidence_count": 1,
+                "description": "An account modification event was observed.",
+                "assessment": "Technique is relevant to the observed evidence and requires analyst validation."
+            }
+        ],
+        "response_actions": [],
+        "timeline": [],
+        "correlation_reason": "Security alerts and related authentication, privilege, and account activity were correlated using common username and source IP.",
+        "analyst_decision": "RESOLVE",
+        "decision_timestamp": "2026-09-29 05:05:28",
+        "decision_history": [
+            {
+                "decision": "CONTINUE_INVESTIGATION",
+                "timestamp": "2026-09-28 15:41:50"
+            },
+            {
+                "decision": "RESOLVE",
+                "timestamp": "2026-09-29 05:05:28"
+            }
+        ],
+        "investigation_activity": [
+            {
+                "timestamp": "2026-09-28 15:47:01",
+                "activity": "Reviewed authentication timeline and correlated privileged activity."
+            }
+        ],
+        "mitre_evidence": [
+            {
+                "evidence_type": "failed_logins",
+                "event_count": 6,
+                "technique_id": "T1110",
+                "technique_name": "Brute Force",
+                "description": "Repeated authentication failures were observed."
+            },
+            {
+                "evidence_type": "successful_logins",
+                "event_count": 1,
+                "technique_id": "T1078",
+                "technique_name": "Valid Accounts",
+                "description": "A successful authentication followed the observed failures."
+            },
+            {
+                "evidence_type": "sudo_events",
+                "event_count": 1,
+                "technique_id": "T1548.003",
+                "technique_name": "Sudo and Sudo Caching",
+                "description": "Privileged sudo activity was observed."
+            },
+            {
+                "evidence_type": "account_changes",
+                "event_count": 1,
+                "technique_id": "T1098",
+                "technique_name": "Account Manipulation",
+                "description": "An account modification event was observed."
+            }
+        ],
+        "analyst_briefing": {
+            "generated_at": "2026-09-29 05:19:01",
+            "case_id": "CASE-0002",
+            "subject": {
+                "username": "admin",
+                "source_ip": "185.10.20.30"
+            },
+            "case_status": "NEW",
+            "risk": {
+                "score": 90,
+                "level": "HIGH"
+            },
+            "detection_rules": [
+                "ACCOUNT_MODIFICATION",
+                "BRUTE_FORCE_AUTH",
+                "PRIVILEGED_ACTIVITY",
+                "SUCCESS_AFTER_FAILURE"
+            ],
+            "evidence_summary": "6 failed authentication attempts; 1 successful authentication event(s); 1 privileged sudo event(s); 1 account modification event(s).",
+            "event_counts": {
+                "failed_logins": 6,
+                "successful_logins": 1,
+                "sudo_events": 1,
+                "account_changes": 1
+            },
+            "mitre_techniques": [
+                "T1110 - Brute Force",
+                "T1078 - Valid Accounts",
+                "T1548.003 - Sudo and Sudo Caching",
+                "T1098 - Account Manipulation"
+            ],
+            "analyst_assessment": "Multiple correlated security indicators are present. Detailed analyst validation is required.",
+            "analyst_decision": "RESOLVE"
+        }
+    }
+]

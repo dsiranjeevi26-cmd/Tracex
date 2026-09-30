@@ -1,0 +1,32 @@
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary editor files
+*.tmp
+*.swp
+*.save
+
+# Development backups
+final_backup/
+test_backup/
+
+# Streamlit secrets
+.streamlit/secrets.toml
+# Generated reports - keep only final demo report
+reports/generated/*
+!reports/generated/RPT-20260930070958.json
+!reports/generated/RPT-20260930070958.txt

@@ -1,0 +1,18 @@
+{
+    "BRUTE_FORCE_AUTH": {
+        "technique_id": "T1110",
+        "technique_name": "Brute Force"
+    },
+    "SSH_LOGIN": {
+        "technique_id": "T1021.004",
+        "technique_name": "SSH"
+    },
+    "SUDO_ACTIVITY": {
+        "technique_id": "T1548.003",
+        "technique_name": "Sudo and Sudo Caching"
+    },
+    "ACCOUNT_MODIFICATION": {
+        "technique_id": "T1098",
+        "technique_name": "Account Manipulation"
+    }
+}

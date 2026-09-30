@@ -1,0 +1,129 @@
+[
+    {
+        "username": "testuser",
+        "source_ip": "10.10.10.50",
+        "service": "ssh",
+        "alert_services": [
+            "ssh"
+        ],
+        "related_alert_ids": [
+            "TRX-0001"
+        ],
+        "detection_rules": [
+            "BRUTE_FORCE_AUTH"
+        ],
+        "event_counts": {
+            "failed_logins": 0,
+            "successful_logins": 0,
+            "sudo_events": 0,
+            "account_changes": 0
+        },
+        "timeline": [],
+        "correlation_reason": "Security alerts and related authentication, privilege, and account activity were correlated using common username and source IP.",
+        "risk_score": 0,
+        "risk_level": "LOW",
+        "risk_factors": []
+    },
+    {
+        "username": "admin",
+        "source_ip": "185.10.20.30",
+        "service": "account",
+        "alert_services": [
+            "account",
+            "ssh",
+            "sudo"
+        ],
+        "related_alert_ids": [
+            "TRX-0002",
+            "TRX-0003",
+            "TRX-0004",
+            "TRX-0005"
+        ],
+        "detection_rules": [
+            "ACCOUNT_MODIFICATION",
+            "BRUTE_FORCE_AUTH",
+            "PRIVILEGED_ACTIVITY",
+            "SUCCESS_AFTER_FAILURE"
+        ],
+        "event_counts": {
+            "failed_logins": 6,
+            "successful_logins": 1,
+            "sudo_events": 1,
+            "account_changes": 1
+        },
+        "timeline": [
+            {
+                "timestamp": "2026-09-30 10:20:01",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:20:05",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:20:09",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:20:12",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:20:15",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:20:18",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:21:02",
+                "event": "Successful login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:22:10",
+                "event": "Sudo command",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "command": "systemctl"
+            },
+            {
+                "timestamp": "2026-09-30 10:23:05",
+                "event": "Account change",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "action": "password_change"
+            }
+        ],
+        "correlation_reason": "Security alerts and related authentication, privilege, and account activity were correlated using common username and source IP.",
+        "risk_score": 90,
+        "risk_level": "HIGH",
+        "risk_factors": [
+            "6 failed authentication attempts detected",
+            "Successful login observed after failed authentication activity",
+            "Privileged command activity observed",
+            "Account modification activity observed"
+        ]
+    }
+]

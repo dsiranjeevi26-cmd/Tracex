@@ -1,0 +1,233 @@
+{
+    "report_id": "RPT-20260930070958",
+    "generated_at": "2026-09-30 07:09:58",
+    "report_type": "TRACEX_INCIDENT_INVESTIGATION_REPORT",
+    "case_information": {
+        "case_id": "CASE-0002",
+        "username": "admin",
+        "source_ip": "185.10.20.30",
+        "service": null,
+        "status": "NEW",
+        "risk_score": 90,
+        "risk_level": "HIGH",
+        "created_at": "2026-09-28T15:28:01",
+        "updated_at": "2026-09-30T07:09:58"
+    },
+    "detection_summary": {
+        "detection_rules": [
+            "ACCOUNT_MODIFICATION",
+            "BRUTE_FORCE_AUTH",
+            "PRIVILEGED_ACTIVITY",
+            "SUCCESS_AFTER_FAILURE"
+        ],
+        "related_alert_count": 4,
+        "related_alerts": [
+            {
+                "alert_id": "TRX-0002",
+                "rule": "BRUTE_FORCE_AUTH",
+                "severity": "HIGH",
+                "timestamp": "2026-09-28 15:28:01",
+                "service": "ssh"
+            },
+            {
+                "alert_id": "TRX-0003",
+                "rule": "SUCCESS_AFTER_FAILURE",
+                "severity": "HIGH",
+                "timestamp": "2026-09-28 15:28:01",
+                "service": "ssh"
+            },
+            {
+                "alert_id": "TRX-0004",
+                "rule": "PRIVILEGED_ACTIVITY",
+                "severity": "MEDIUM",
+                "timestamp": "2026-09-28 15:28:01",
+                "service": "sudo"
+            },
+            {
+                "alert_id": "TRX-0005",
+                "rule": "ACCOUNT_MODIFICATION",
+                "severity": "HIGH",
+                "timestamp": "2026-09-28 15:28:01",
+                "service": "account"
+            }
+        ]
+    },
+    "evidence_summary": {
+        "failed_logins": 0,
+        "successful_logins": 0,
+        "sudo_events": 0,
+        "account_changes": 0,
+        "supporting_indicators": 0,
+        "evidence": []
+    },
+    "correlation_summary": {
+        "username": "admin",
+        "source_ip": "185.10.20.30",
+        "service": "account",
+        "alert_services": [
+            "account",
+            "ssh",
+            "sudo"
+        ],
+        "related_alert_ids": [
+            "TRX-0002",
+            "TRX-0003",
+            "TRX-0004",
+            "TRX-0005"
+        ],
+        "detection_rules": [
+            "ACCOUNT_MODIFICATION",
+            "BRUTE_FORCE_AUTH",
+            "PRIVILEGED_ACTIVITY",
+            "SUCCESS_AFTER_FAILURE"
+        ],
+        "event_counts": {
+            "failed_logins": 6,
+            "successful_logins": 1,
+            "sudo_events": 1,
+            "account_changes": 1
+        },
+        "timeline": [
+            {
+                "timestamp": "2026-09-30 10:20:01",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:20:05",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:20:09",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:20:12",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:20:15",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:20:18",
+                "event": "Failed login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:21:02",
+                "event": "Successful login",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "service": "ssh"
+            },
+            {
+                "timestamp": "2026-09-30 10:22:10",
+                "event": "Sudo command",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "command": "systemctl"
+            },
+            {
+                "timestamp": "2026-09-30 10:23:05",
+                "event": "Account change",
+                "username": "admin",
+                "source_ip": "185.10.20.30",
+                "action": "password_change"
+            }
+        ],
+        "correlation_reason": "Security alerts and related authentication, privilege, and account activity were correlated using common username and source IP.",
+        "risk_score": 90,
+        "risk_level": "HIGH",
+        "risk_factors": [
+            "6 failed authentication attempts detected",
+            "Successful login observed after failed authentication activity",
+            "Privileged command activity observed",
+            "Account modification activity observed"
+        ]
+    },
+    "mitre_attack_context": [
+        {
+            "technique_id": "T1110",
+            "technique_name": "Brute Force",
+            "evidence": "N/A",
+            "count": "N/A",
+            "context": "N/A"
+        },
+        {
+            "technique_id": "T1078",
+            "technique_name": "Valid Accounts",
+            "evidence": "N/A",
+            "count": "N/A",
+            "context": "N/A"
+        },
+        {
+            "technique_id": "T1548.003",
+            "technique_name": "Sudo and Sudo Caching",
+            "evidence": "N/A",
+            "count": "N/A",
+            "context": "N/A"
+        },
+        {
+            "technique_id": "T1098",
+            "technique_name": "Account Manipulation",
+            "evidence": "N/A",
+            "count": "N/A",
+            "context": "N/A"
+        }
+    ],
+    "analyst_assessment": {
+        "notes": [
+            {
+                "timestamp": "2026-09-28 15:46:45",
+                "note": "Authentication failures were followed by successful login and privileged activity; evidence requires further validation."
+            }
+        ],
+        "decisions": [
+            {
+                "decision": "CONTINUE_INVESTIGATION",
+                "timestamp": "2026-09-28 15:41:50"
+            },
+            {
+                "decision": "RESOLVE",
+                "timestamp": "2026-09-29 05:05:28"
+            }
+        ],
+        "investigation_activity": [
+            {
+                "timestamp": "2026-09-28 15:47:01",
+                "activity": "Reviewed authentication timeline and correlated privileged activity."
+            }
+        ],
+        "current_decision": "RESOLVE",
+        "decision_status": null
+    },
+    "response_summary": {
+        "total_actions": 0,
+        "completed_actions": 0,
+        "actions": []
+    },
+    "resolution": {
+        "status": "NEW",
+        "analyst_decision": "RESOLVE",
+        "resolution_reason": "N/A",
+        "resolved_at": "N/A"
+    },
+    "assessment": "The report summarizes observed security events, correlated evidence, risk assessment, analyst activity, MITRE ATT&CK context, and response tracking. The presence of suspicious indicators does not by itself confirm malicious activity."
+}

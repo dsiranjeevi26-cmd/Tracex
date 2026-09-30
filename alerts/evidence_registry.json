@@ -1,0 +1,20 @@
+[
+    {
+        "evidence_id": "EVID-0001",
+        "case_id": "CASE-0002",
+        "evidence_type": "AUTH_LOG",
+        "file_path": "logs/auth.log",
+        "sha256": "90d4bc870cdea95948004448870b4fb49c420ba3aa08d5154f329467bae954ba",
+        "registered_at": "2026-09-29 10:40:57",
+        "last_verified_at": "2026-09-29 10:41:17",
+        "integrity_status": "INTACT",
+        "verification_history": [
+            {
+                "verified_at": "2026-09-29 10:41:17",
+                "original_sha256": "90d4bc870cdea95948004448870b4fb49c420ba3aa08d5154f329467bae954ba",
+                "current_sha256": "90d4bc870cdea95948004448870b4fb49c420ba3aa08d5154f329467bae954ba",
+                "status": "INTACT"
+            }
+        ]
+    }
+]

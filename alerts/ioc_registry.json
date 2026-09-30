@@ -1,0 +1,14 @@
+[
+    {
+        "ioc_id": "IOC-0001",
+        "case_id": "CASE-0002",
+        "ioc_type": "IP",
+        "value": "185.10.20.30",
+        "source": "auth.log",
+        "classification": "PUBLIC_IP_REQUIRES_REVIEW",
+        "threat_intelligence_status": "NOT_LOOKED_UP",
+        "analyst_status": "REQUIRES_REVIEW",
+        "created_at": "2026-09-29 10:44:52",
+        "analyst_note": ""
+    }
+]

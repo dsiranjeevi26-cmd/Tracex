@@ -1,0 +1,72 @@
+[
+    {
+        "alert_id": "TRX-0001",
+        "detection_rule": "BRUTE_FORCE_AUTH",
+        "fingerprint": "BRUTE_FORCE_AUTH|testuser|10.10.10.50|ssh",
+        "severity": "HIGH",
+        "status": "NEW",
+        "timestamp": "2026-09-28 13:46:50",
+        "username": "testuser",
+        "source_ip": "10.10.10.50",
+        "service": "ssh",
+        "attempt_count": 6,
+        "time_window": 60,
+        "reason": "Multiple failed authentication attempts detected"
+    },
+    {
+        "alert_id": "TRX-0002",
+        "detection_rule": "BRUTE_FORCE_AUTH",
+        "fingerprint": "BRUTE_FORCE_AUTH|admin|185.10.20.30|ssh",
+        "severity": "HIGH",
+        "status": "NEW",
+        "timestamp": "2026-09-28 15:28:01",
+        "username": "admin",
+        "source_ip": "185.10.20.30",
+        "service": "ssh",
+        "attempt_count": 6,
+        "time_window": 60,
+        "reason": "Multiple failed authentication attempts detected"
+    },
+    {
+        "alert_id": "TRX-0003",
+        "detection_rule": "SUCCESS_AFTER_FAILURE",
+        "fingerprint": "SUCCESS_AFTER_FAILURE|admin|185.10.20.30|ssh",
+        "severity": "HIGH",
+        "status": "NEW",
+        "timestamp": "2026-09-28 15:28:01",
+        "username": "admin",
+        "source_ip": "185.10.20.30",
+        "service": "ssh",
+        "attempt_count": 6,
+        "time_window": null,
+        "reason": "Successful authentication observed after failed login activity"
+    },
+    {
+        "alert_id": "TRX-0004",
+        "detection_rule": "PRIVILEGED_ACTIVITY",
+        "fingerprint": "PRIVILEGED_ACTIVITY|admin|185.10.20.30|sudo",
+        "severity": "MEDIUM",
+        "status": "NEW",
+        "timestamp": "2026-09-28 15:28:01",
+        "username": "admin",
+        "source_ip": "185.10.20.30",
+        "service": "sudo",
+        "attempt_count": 1,
+        "time_window": null,
+        "reason": "Privileged command activity observed"
+    },
+    {
+        "alert_id": "TRX-0005",
+        "detection_rule": "ACCOUNT_MODIFICATION",
+        "fingerprint": "ACCOUNT_MODIFICATION|admin|185.10.20.30|account",
+        "severity": "HIGH",
+        "status": "NEW",
+        "timestamp": "2026-09-28 15:28:01",
+        "username": "admin",
+        "source_ip": "185.10.20.30",
+        "service": "account",
+        "attempt_count": 1,
+        "time_window": null,
+        "reason": "Account modification activity observed"
+    }
+]
